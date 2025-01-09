@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express(),
       bodyParser = require("body-parser");
-      port = 80;
+      port = 3001;
 
 // place holder for the data
 const users = [
@@ -42,6 +42,6 @@ app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
 });
 
-app.listen(port, () => {
-    console.log(`Server listening on the port::${port}`);
+app.listen(3001, () => {
+    console.log('Start API Server at port 3001.');
 });
