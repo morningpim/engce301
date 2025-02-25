@@ -6,23 +6,19 @@ let cors = require("cors");
 
 const OnlineAgent = require("./repository/OnlineAgent");
 const apiconfig = require('./apiconfig')['development'];
-
 //-------------------------------------
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-const apiport = 8444;
+const apiport = 8443;
 
 var url = require("url");
 
-//----------------------------------------------
-//Websocket
-
 var webSocketServer = new (require('ws')).Server({
-  port: (process.env.PORT || 3071)
-}),
-  clientWebSockets = {} // userID: webSocket
-CLIENTS = [];
+   port: (process.env.PORT || 3071)
+});
+  var clientWebSockets = {} // userID: webSocket
+var CLIENTS = [];
 
 webSocketServer.on('connection', (ws, req) => {
 
@@ -191,9 +187,7 @@ const init = async () => {
     },
   });
 
-  //-------- Your Code continue here -------------------
-
- /*-------------------------------------------*/
+  /*-------------------------------------------*/
   /* API Name: getOnlineAgentByAgentCode       */
   /* Method: 'GET'                             */
   /*-------------------------------------------*/
@@ -260,7 +254,12 @@ const init = async () => {
       }
     },
   });
+  
 
+/*-------------------------------------------*/
+  /* API Name: postOnlineAgentStatus       */
+  /* Method: 'POST'                             */
+  /*-------------------------------------------*/
   server.route({
     method: 'POST',
     path: '/api/v1/postOnlineAgentStatus',
@@ -320,60 +319,56 @@ const init = async () => {
               AgentStatus
             );
 
-            if (responsedata.statusCode == 500)
-              return h
-                .response({
-                  error: true,
-                  statusCode: 500,
-                  errMessage: 'An internal server error occurred.',
-                })
-                .code(500); 
-            else if (responsedata.statusCode == 200) 
-            {
-            
-                  //---------------- Websocket Part2 Start -----------------------
-                      console.log("AgentCode: "+AgentCode)
-                   
-                      if (!responsedata.error) {
-  
-                          if (clientWebSockets[AgentCode]) {
-                              
-                              console.log("Sennding MessageType")
-  
-                              clientWebSockets[AgentCode].send(JSON.stringify({
-                                  MessageType: '1',
-                                  AgentCode: AgentCode,
-                                  AgentName: AgentName,
-                                  IsLogin: IsLogin,
-                                  AgentStatus: AgentStatus,
-                                  DateTime: d.toLocaleString('en-US'),
-                              }));
-  
-                               return ({
-                                   error: false,
-                                   message: "Agent status has been set.",
-                               });
-  
-                          }
-                      }
-                      //---------------- Websocket Part2 End -----------------------
-         
-            
-               return responsedata;
-            }
-            else if (responsedata.statusCode == 404)
-              return h.response(responsedata).code(404);
-            else
-              return h
-                .response('Something went wrong. Please try again later.')
-                .code(500);
-          }
-        } catch (err) {
-          console.dir(err);
-        }
-      },
-  });
+          if (responsedata.statusCode == 500)
+            return h
+              .response({
+                error: true,
+                statusCode: 500,
+                errMessage: 'An internal server error occurred.',
+              })
+              .code(500); 
+          else if (responsedata.statusCode == 200) 
+          {
+            //---------------- Websocket Part2 Start -----------------------
+            console.log("AgentCode: "+AgentCode)
+                 
+            if (!responsedata.error) {
 
+                if (clientWebSockets[AgentCode]) {
+                    
+                    console.log("Sennding MessageType")
+
+                    clientWebSockets[AgentCode].send(JSON.stringify({
+                        MessageType: '1',
+                        AgentCode: AgentCode,
+                        AgentName: AgentName,
+                        IsLogin: IsLogin,
+                        AgentStatus: AgentStatus,
+                        DateTime: d.toLocaleString('en-US'),
+                    }));
+
+                     return ({
+                         error: false,
+                         message: "Agent status has been set.",
+                     });
+
+                }
+            }
+            //---------------- Websocket Part2 End -----------------------
+            return responsedata;
+          }
+          else if (responsedata.statusCode == 404)
+            return h.response(responsedata).code(404);
+          else
+            return h
+              .response('Something went wrong. Please try again later.')
+              .code(500);
+        }
+      } catch (err) {
+        console.dir(err);
+      }
+    },
+  });
   server.route({
     method: 'POST',
     path: '/api/v1/postSendMessage',
@@ -438,10 +433,10 @@ const init = async () => {
         }
 
     }
-  });
+
+});
 
   //----------------------------------------------
-
   await server.start();
   console.log("Webreport API Server running on %s", server.info.uri);
 };
