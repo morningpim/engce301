@@ -1,0 +1,17 @@
+{"level":"warn","message":"DeprecationWarning: The Parse Server option 'encodeParseObjectInCloudFunction' default will change to 'true' in a future version.","timestamp":"2025-03-05T17:02:51.280Z"}
+{"level":"info","message":"Parse LiveQuery Server started running","timestamp":"2025-03-05T17:02:51.474Z"}
+{"level":"info","message":"Create new client: 3dd242ec-7597-473c-9d78-8bd0b2754c89","timestamp":"2025-03-05T17:11:49.319Z"}
+{"functionName":"OnlineAgentByAgentCode","level":"info","message":"Ran cloud function OnlineAgentByAgentCode for user undefined with:\n  Input: {\"AgentCode\":\"1234\",\"AgentName\":\"Test Agent2\",\"Team\":\"1\",\"AgentStatus\":\"1\",\"AgentStatusCode\":\"5\",\"IsLogin\":\"1\"}\n  Result: \"9\"","params":{"AgentCode":"1234","AgentName":"Test Agent2","AgentStatus":"1","AgentStatusCode":"5","IsLogin":"1","Team":"1"},"timestamp":"2025-03-05T17:12:01.792Z"}
+{"level":"info","message":"Client disconnect: 3dd242ec-7597-473c-9d78-8bd0b2754c89","timestamp":"2025-03-05T17:12:09.822Z"}
+{"level":"info","message":"Create new client: 29b1d66f-1d97-48ac-a777-a0024ccf971c","timestamp":"2025-03-05T17:12:11.004Z"}
+{"level":"info","message":"Client disconnect: 29b1d66f-1d97-48ac-a777-a0024ccf971c","timestamp":"2025-03-05T17:13:07.053Z"}
+{"level":"info","message":"Create new client: 9be8ed69-2aaf-4968-b46a-7ac7ba898e0d","timestamp":"2025-03-05T17:13:09.860Z"}
+{"functionName":"OnlineAgentByAgentCode","level":"info","message":"Ran cloud function OnlineAgentByAgentCode for user undefined with:\n  Input: {\"AgentCode\":\"1234\",\"AgentName\":\"Test Agent2\",\"Team\":\"1\",\"AgentStatus\":\"1\",\"AgentStatusCode\":\"5\",\"IsLogin\":\"1\"}\n  Result: \"9\"","params":{"AgentCode":"1234","AgentName":"Test Agent2","AgentStatus":"1","AgentStatusCode":"5","IsLogin":"1","Team":"1"},"timestamp":"2025-03-05T17:13:18.448Z"}
+{"level":"info","message":"Client disconnect: 9be8ed69-2aaf-4968-b46a-7ac7ba898e0d","timestamp":"2025-03-05T17:13:36.308Z"}
+{"level":"info","message":"Create new client: ecc48f0a-6501-4652-a098-278322c7b775","timestamp":"2025-03-05T17:13:38.685Z"}
+{"level":"warn","message":"DeprecationWarning: The Parse Server option 'encodeParseObjectInCloudFunction' default will change to 'true' in a future version.","timestamp":"2025-03-05T17:16:29.278Z"}
+{"level":"info","message":"Parse LiveQuery Server started running","timestamp":"2025-03-05T17:16:29.376Z"}
+{"level":"info","message":"Create new client: 8a0d6432-0913-49c0-af9f-940ee6599edc","timestamp":"2025-03-05T17:16:29.738Z"}
+{"functionName":"postOnlineAgentListByTeam","level":"info","message":"Ran cloud function postOnlineAgentListByTeam for user undefined with:\n  Input: {\"AgentCode\":\"1234\",\"AgentName\":\"Test Agent2\",\"Team\":\"1\",\"AgentStatus\":\"1\",\"AgentStatusCode\":\"5\",\"IsLogin\":\"1\"}\n  Result: 0","params":{"AgentCode":"1234","AgentName":"Test Agent2","AgentStatus":"1","AgentStatusCode":"5","IsLogin":"1","Team":"1"},"timestamp":"2025-03-05T17:17:39.206Z"}
+{"level":"info","message":"Client disconnect: 8a0d6432-0913-49c0-af9f-940ee6599edc","timestamp":"2025-03-05T17:17:51.878Z"}
+{"level":"info","message":"Create new client: 8b372dfb-d761-4928-9c3e-9400e9433d4c","timestamp":"2025-03-05T17:17:55.515Z"}
